@@ -15,9 +15,27 @@ let when = [
   "during my lunch",
   "while I was praying"
 ];
+
+function getRandomNumber(a, b) {
+  return Math.floor(Math.random() * (b - a) + a);
+}
+
+function getRandom(anyArray) {
+  let max = who.length - 1;
+  let min = 0;
+  let random = getRandomNumber(min, max);
+  return anyArray[random];
+}
+
 window.onload = function() {
   //write your code here
   console.log("Hello Rigo from the console!");
   document.querySelector("#excuse").innerHTML =
-    who[4] + " " + action[1] + " " + what[2] + " " + when[3];
+    getRandom(who) +
+    " " +
+    getRandom(action) +
+    " " +
+    getRandom(what) +
+    " " +
+    getRandom(when);
 };

@@ -1,41 +1,37 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-
+import "./index.html";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-let who = ["The dog", "My grandma", "The mailman", "My bird", "Mary"];
-let action = ["ate", "peed", "crushed", "broke"];
-let what = ["my homework", "my phone", "the car"];
-let when = [
-  "before the class",
-  "when I was sleeping",
-  "while I was exercising",
-  "during my lunch",
-  "while I was praying"
-];
-
-function getRandomNumber(a, b) {
-  return Math.floor(Math.random() * (b - a) + a);
+function getRandomExcuse() {
+  let who = [
+    "A lonely comedian",
+    "A lonely merchant",
+    "A slow merchant",
+    "A two headed pinecone",
+    "A lonely jogger"
+  ];
+  let action = ["burned", "kicked", "threw", "yelled at"];
+  let what = ["my sandwhich", "my computer", "the car"];
+  let where = [
+    "in the house",
+    "near the toilet",
+    "on the street",
+    "in front of the office",
+    "while I was praying"
+  ];
+  const randomWho = who[Math.floor(Math.random() * who.length)];
+  const randomAction = action[Math.floor(Math.random() * action.length)];
+  const randomWhat = what[Math.floor(Math.random() * what.length)];
+  const randomWhere = where[Math.floor(Math.random() * where.length)];
+  const excuse = `${randomWho} ${randomAction} ${randomWhat} ${randomWhere}`;
+  return excuse;
 }
 
-function getRandom(anyArray) {
-  let max = who.length - 1;
-  let min = 0;
-  let random = getRandomNumber(min, max);
-  return anyArray[random];
-}
-
-window.onload = function() {
+window.onload = () => {
   //write your code here
-  console.log("Hello Rigo from the console!");
-  document.querySelector("#excuse").innerHTML =
-    getRandom(who) +
-    " " +
-    getRandom(action) +
-    " " +
-    getRandom(what) +
-    " " +
-    getRandom(when);
+  const p = document.querySelector("#excuse");
+  p.innerHTML = getRandomExcuse();
 };
